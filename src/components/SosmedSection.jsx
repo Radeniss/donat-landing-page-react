@@ -3,7 +3,7 @@ import { Instagram, Twitter, Facebook, Github } from 'lucide-react';
 
 const SosmedSection = () => {
     return (
-       <section className="bg-gray-50 py-10 px-6 reveal-up">
+     <div className='px-52'>
        <div className="flex flex-col md:flex-row items-center justify-between gap-12 mb-20 pt-40">
             <div className="w-full md:w-1/2 space-y-8 text-center md:text-left reveal-item" style={{ '--reveal-delay': '420ms' }}>
                 <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 leading-snug">
@@ -25,7 +25,7 @@ const SosmedSection = () => {
                     />
             </div>
         </div>
-        </section>
+        </div>
     );
 };
 
