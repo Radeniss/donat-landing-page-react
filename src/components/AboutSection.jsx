@@ -1,12 +1,33 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const AboutSection = () => {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add('is-visible');
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.4, rootMargin: '0px 0px -20% 0px' }
+    );
+
+    observer.observe(el);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="bg-gray-50 py-20 px-6">
+    <section ref={sectionRef} className="bg-gray-50 py-20 px-6 reveal-up">
       <div className="max-w-6xl mx-auto w-full">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-20">
           
-          <div className="w-full md:w-5/12 flex justify-center md:justify-end">
+          <div className="w-full md:w-5/12 flex justify-center md:justify-end reveal-item" style={{ '--reveal-delay': '0ms' }}>
             <img 
               src="/chibi-chef.png" 
               alt="Rafaya Chef" 
@@ -14,7 +35,7 @@ const AboutSection = () => {
             />
           </div>
 
-          <div className="w-full md:w-7/12 space-y-8 text-center md:text-left">
+          <div className="w-full md:w-7/12 space-y-8 text-center md:text-left reveal-item" style={{ '--reveal-delay': '140ms' }}>
             <p className="text-xl md:text-2xl text-gray-800 font-medium leading-relaxed">
               Jangan lupa istirahat ya, kamu sudah bekerja keras hari ini.{' '}
               <span className="italic font-bold text-[#5D4037]">
