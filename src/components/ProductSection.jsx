@@ -45,7 +45,7 @@ const ProductSection = () => {
             <img 
               src="/chibi-jump.png" 
               alt="Rafaya Jumping" 
-              className="w-64 md:w-80 object-contain drop-shadow-2xl animate-bounce"
+              className="w-64 md:w-80 object-contain drop-shadow-2xl"
             />
           </div>
         </div>
